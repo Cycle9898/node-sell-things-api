@@ -1,7 +1,9 @@
 import http from "http";
+import { app } from "./app.js";
 
-const server = http.createServer((req, res) => {
-	res.end("Voilà la réponse du serveur");
-});
+const port = process.env.PORT || 3000;
 
-server.listen(process.env.PORT || 3000);
+app.set("port", port);
+const server = http.createServer(app);
+
+server.listen(port);

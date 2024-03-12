@@ -16,5 +16,8 @@
 		"API REST"
 	],
 	"author": "Cycle9898",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.3"
+	}
 }
