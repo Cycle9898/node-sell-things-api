@@ -2,6 +2,9 @@ import express from "express";
 
 export const app = express();
 
+// Body parser middleware
+app.use(express.json());
+
 // CORS middleware
 app.use((req, res, next) => {
 	res.set("Access-Control-Allow-Origin", "*");
@@ -40,4 +43,9 @@ app.get("/api/stuff", (req, res, next) => {
 		}
 	];
 	res.status(200).json(stuff);
+});
+
+app.post("/api/stuff", (req, res, next) => {
+	console.log(req.body);
+	res.status(201).json({ message: "Objet créé !" });
 });
