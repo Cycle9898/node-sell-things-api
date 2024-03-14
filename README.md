@@ -1,3 +1,5 @@
+**\*\*Work in progress\*\***
+
 # Sell Things NodeJS API REST
 
 This API REST is created with NodeJS, Express and use a MongoDB database.
@@ -11,12 +13,14 @@ With it, you can fetch data about sold items, authenticate users and then create
 This API uses the following tech stack:
 
 -   [Node.js](https://nodejs.org/en)
--   [MongoDB](https://www.mongodb.com/) to host a MongoDB database locally, for dev purpose
+-   [MongoDB](https://www.mongodb.com/) to host a MongoDB database locally or [Atlas](https://www.mongodb.com/atlas/database) for a cloud hosted one
 -   [PNPM](https://pnpm.io/)
 
 Please make sure you have the latest versions.
 
 ### Instructions
+
+**\*\*To be completed\*\***
 
 1. Fork this repo
 2. Clone the repo onto your computer
@@ -53,7 +57,7 @@ npm run start
 
 ## API endpoints
 
-_To be completed_
+**\*\*To be completed\*\***
 
 ## Environment variables
 
