@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
+import { Thing } from "./database/models/Thing.js";
 
 export const app = express();
 
@@ -54,6 +55,13 @@ app.get("/api/stuff", (req, res, next) => {
 });
 
 app.post("/api/stuff", (req, res, next) => {
-	console.log(req.body);
-	res.status(201).json({ message: "Objet créé !" });
+	delete req.body._id;
+
+	const thing = new Thing({
+		...req.body
+	});
+	thing
+		.save()
+		.then(() => res.status(201).json({ message: "Objet enregistré !" }))
+		.catch(error => res.status(400).json({ error }));
 });
