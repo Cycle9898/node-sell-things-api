@@ -13,9 +13,18 @@ export function getOneThing(req, res, next) {
 }
 
 export function createThing(req, res, next) {
-	delete req.body._id;
+	const thingObject = JSON.parse(req.body.thing);
+	delete thingObject._id;
+	delete thingObject.userId;
 
-	const thing = new Thing({ ...req.body });
+	const thing = new Thing({
+		...thingObject,
+		userId: req.auth.userId,
+		imageUrl: `${req.protocol}://${req.get("host")}/images/${
+			req.file.filename
+		}`
+	});
+
 	thing
 		.save()
 		.then(() => res.status(201).json({ message: "Objet enregistré !" }))

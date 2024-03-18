@@ -3,6 +3,10 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import { stuffRouter } from "./routes/stuff.js";
 import { userRouter } from "./routes/user.js";
+import path from "path";
+import * as url from "url";
+
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 export const app = express();
 
@@ -34,3 +38,5 @@ app.use((req, res, next) => {
 app.use("/api/stuff", stuffRouter);
 
 app.use("/api/auth", userRouter);
+
+app.use("/images", express.static(path.join(__dirname, "images")));
