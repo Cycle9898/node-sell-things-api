@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
 import { stuffRouter } from "./routes/stuff.js";
+import { userRouter } from "./routes/user.js";
 
 export const app = express();
 
@@ -31,3 +32,5 @@ app.use((req, res, next) => {
 
 // Endpoints
 app.use("/api/stuff", stuffRouter);
+
+app.use("/api/auth", userRouter);
