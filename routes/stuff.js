@@ -11,6 +11,6 @@ stuffRouter.get("/:id", auth, stuffCtrl.getOneThing);
 
 stuffRouter.post("/", auth, multerConfig, stuffCtrl.createThing);
 
-stuffRouter.put("/:id", auth, stuffCtrl.modifyThing);
+stuffRouter.put("/:id", auth, multerConfig, stuffCtrl.modifyThing);
 
 stuffRouter.delete("/:id", auth, stuffCtrl.deleteThing);
