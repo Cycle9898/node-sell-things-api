@@ -1,14 +1,15 @@
 import express from "express";
+import { auth } from "../middlewares/auth.js";
 import * as stuffCtrl from "../controllers/stuff.js";
 
 export const stuffRouter = express.Router();
 
-stuffRouter.get("/", stuffCtrl.getThings);
+stuffRouter.get("/", auth, stuffCtrl.getThings);
 
-stuffRouter.get("/:id", stuffCtrl.getOneThing);
+stuffRouter.get("/:id", auth, stuffCtrl.getOneThing);
 
-stuffRouter.post("/", stuffCtrl.createThing);
+stuffRouter.post("/", auth, stuffCtrl.createThing);
 
-stuffRouter.put("/:id", stuffCtrl.modifyThing);
+stuffRouter.put("/:id", auth, stuffCtrl.modifyThing);
 
-stuffRouter.delete("/:id", stuffCtrl.deleteThing);
+stuffRouter.delete("/:id", auth, stuffCtrl.deleteThing);
