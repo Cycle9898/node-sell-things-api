@@ -1,5 +1,3 @@
-**\*\*Work in progress\*\***
-
 # Sell Things NodeJS API REST
 
 This API REST is created with NodeJS, Express and use a MongoDB database.
@@ -20,12 +18,11 @@ Please make sure you have the latest versions.
 
 ### Instructions
 
-**\*\*To be completed\*\***
-
-1. Fork this repo
-2. Clone the repo onto your computer
-3. Open a terminal window in the cloned project
-4. Run the following commands:
+1. Create the database locally or online
+2. Set 'DB_URL' variable in a .env file accordingly
+3. Clone the repo onto your computer
+4. Open a terminal window in the cloned project
+5. Run the following commands:
 
 ```bash
 # Install dependencies
@@ -57,7 +54,37 @@ npm run start
 
 ## API endpoints
 
-**\*\*To be completed\*\***
+-   **POST: /api/auth/signup**
+
+Used to create a user and save it in the database.
+
+The request body needs to contain email and password properties.
+
+-   **POST: /api/auth/login**
+
+Used to authenticate a user and get a JWT token.
+
+The request body needs to contain email and password properties.
+
+-   **GET: /api/stuff/ or /api/stuff/:id**
+
+Fetch data from all sold items (things) or only one if an id is specified.
+
+-   **POST: /api/stuff/**
+
+Add a new sold item (thing) in the database.
+
+The request body needs to contain title, description, imageUrl, userId, price properties.
+
+-   **PUT: /api/stuff/:id**
+
+Modify a sold item (thing) already in the database.
+
+The request body needs to contain title, description, imageUrl, userId, price properties.
+
+-   **DELETE: /api/stuff/:id**
+
+Delete a sold item (thing) already in the database.
 
 ## Environment variables
 
@@ -86,3 +113,9 @@ This back-end app use JWT tokens to authenticate HR users requests.
 It is possible to store your own secret key, in the SECRET_KEY environment variable, that will be used to generate these tokens.
 
 Otherwise, the default secret key is "DEFAULT_SECRET_KEY".
+
+### DB_URL
+
+Modify the URL of the database hosting platform (can be locally or cloud hosted).
+
+Otherwise, the default URL is "mongodb://localhost:27017".
